@@ -1,0 +1,201 @@
+%% ticccccc in github
+% !TeX program = xelatex
+% !TeX encoding = utf8
+
+\documentclass{ctexart}
+\usepackage{circuitikz}
+\usetikzlibrary{intersections}
+
+
+\thispagestyle{empty}% 当前页不显示页码
+\begin{document}
+
+%GPIO序号对应于BCM编码, IO序号对应wiringPi编码, 数字为物理引脚, 括号内为功能名.
+
+
+\begin{center}
+\begin{circuitikz}
+    %%%%%%%%% raspberry pi 4 circuit schematics start %%%%%%%%%
+    \ctikzset{multipoles/dipchip/width=4.5}
+    \ctikzset{multipoles/dipchip/pin spacing=0.6}
+    % \ctikzset{bipoles/length=1.5cm}
+    \draw (0,0)node[dipchip, num pins=40, hide numbers, no topmark, external pins width=1, fill=cyan!20!white](rpi){\LARGE rpi4};
+    \node [right, color=orange] at (rpi.bpin 1) {3.3V};
+    \node [above, color=orange] at (rpi.pin 1) {3.3V};
+    \node [left, color=red] at (rpi.bpin 40) {5V};
+    \node [above, color=red] at (rpi.pin 40) {5V};
+    \node [right, color=cyan] at (rpi.bpin 2) {GPIO.2(SDA.1)};
+    \node [above, color=cyan] at (rpi.pin 2) {IO.8};
+    \node [left, color=red] at (rpi.bpin 39) {5V};
+    \node [above, color=red] at (rpi.pin 39) {5V};
+    \node [right, color=cyan] at (rpi.bpin 3) {GPIO.3(SCL.1)};
+    \node [above, color=cyan] at (rpi.pin 3) {IO.9};
+    \node [left] at (rpi.bpin 38) {GND};
+    \node [above] at (rpi.pin 38) {GND};
+    \node [right, color=olive] at (rpi.bpin 4) {GPIO.4};
+    \node [above, color=olive] at (rpi.pin 4) {IO.7};
+    \node [left, color=blue] at (rpi.bpin 37) {(TXD)GPIO.14};
+    \node [above, color=blue] at (rpi.pin 37) {IO.15};
+    \node [right] at (rpi.bpin 5) {GND};
+    \node [above] at (rpi.pin 5) {GND};
+    \node [left, color=blue] at (rpi.bpin 36) {(RXD)GPIO.15};
+    \node [above, color=blue] at (rpi.pin 36) {IO.16};
+    \node [right, color=olive] at (rpi.bpin 6) {GPIO.17};
+    \node [above, color=olive] at (rpi.pin 6) {IO.0};
+    \node [left, color=olive] at (rpi.bpin 35) {GPIO.18};
+    \node [above, color=olive] at (rpi.pin 35) {IO.1};
+    \node [right, color=olive] at (rpi.bpin 7) {GPIO.27};
+    \node [above, color=olive] at (rpi.pin 7) {IO.2};
+    \node [left] at (rpi.bpin 34) {GND};
+    \node [above] at (rpi.pin 34) {GND};
+    \node [right, color=olive] at (rpi.bpin 8) {GPIO.22};
+    \node [above, color=olive] at (rpi.pin 8) {IO.3};
+    \node [left, color=olive] at (rpi.bpin 33) {GPIO.23};
+    \node [above, color=olive] at (rpi.pin 33) {IO.4};
+    \node [right, color=orange] at (rpi.bpin 9) {3.3V};
+    \node [above, color=orange] at (rpi.pin 9) {3.3V};
+    \node [left, color=olive] at (rpi.bpin 32) {GPIO.24};
+    \node [above, color=olive] at (rpi.pin 32) {IO.5};
+    \node [right, color=purple] at (rpi.bpin 10) {GPIO.10(MOSI)};
+    \node [above, color=purple] at (rpi.pin 10) {IO.12};
+    \node [left] at (rpi.bpin 31) {GND};
+    \node [above] at (rpi.pin 31) {GND};
+    \node [right, color=purple] at (rpi.bpin 11) {GPIO.9(MISO)};
+    \node [above, color=purple] at (rpi.pin 11) {IO.13};
+    \node [left, color=olive] at (rpi.bpin 30) {GPIO.25};
+    \node [above, color=olive] at (rpi.pin 30) {IO.6};
+    \node [right, color=purple] at (rpi.bpin 12) {GPIO.11(SCLK)};
+    \node [above, color=purple] at (rpi.pin 12) {IO.14};
+    \node [left, color=purple] at (rpi.bpin 29) {(CE0\_N)GPIO.8};
+    \node [above, color=purple] at (rpi.pin 29) {IO.10};
+    \node [right] at (rpi.bpin 13) {GND};
+    \node [above] at (rpi.pin 13) {GND};
+    \node [left, color=purple] at (rpi.bpin 28) {(CE1\_N)GPIO.7};
+    \node [above, color=purple] at (rpi.pin 28) {IO.11};
+    \node [right, color=cyan] at (rpi.bpin 14) {GPIO.0(SDA.0)};
+    \node [above, color=cyan] at (rpi.pin 14) {IO.30};
+    \node [left, color=cyan] at (rpi.bpin 27) {(SCL.0)GPIO.1};
+    \node [above, color=cyan] at (rpi.pin 27) {IO.31};
+    \node [right, color=olive] at (rpi.bpin 15) {GPIO.5};
+    \node [above, color=olive] at (rpi.pin 15) {IO.21};
+    \node [left] at (rpi.bpin 26) {GND};
+    \node [above] at (rpi.pin 26) {GND};
+    \node [right, color=olive] at (rpi.bpin 16) {GPIO.6};
+    \node [above, color=olive] at (rpi.pin 16) {IO.22};
+    \node [left, color=olive] at (rpi.bpin 25) {GPIO.12};
+    \node [above, color=olive] at (rpi.pin 25) {IO.26};
+    \node [right, color=olive] at (rpi.bpin 17) {GPIO.13};
+    \node [above, color=olive] at (rpi.pin 17) {IO.23};
+    \node [left] at (rpi.bpin 24) {GND};
+    \node [above] at (rpi.pin 24) {GND};
+    \node [right, color=olive] at (rpi.bpin 18) {GPIO.19};
+    \node [above, color=olive] at (rpi.pin 18) {IO.24};
+    \node [left, color=olive] at (rpi.bpin 23) {GPIO.16};
+    \node [above, color=olive] at (rpi.pin 23) {IO.27};
+    \node [right, color=olive] at (rpi.bpin 19) {GPIO.26};
+    \node [above, color=olive] at (rpi.pin 19) {IO.25};
+    \node [left, color=olive] at (rpi.bpin 22) {GPIO.20};
+    \node [above, color=olive] at (rpi.pin 22) {IO.28};
+    \node [right] at (rpi.bpin 20) {GND};
+    \node [above] at (rpi.pin 20) {GND};
+    \node [left, color=olive] at (rpi.bpin 21) {GPIO.21};
+    \node [above, color=olive] at (rpi.pin 21) {IO.29};
+
+    \draw (rpi.pin 1) -- (rpi.bpin 1) node[color=orange, above, midway] {1};
+    \draw (rpi.pin 40) -- (rpi.bpin 40) node[color=red, above, midway] {2};
+    \draw (rpi.pin 2) -- (rpi.bpin 2) node[color=cyan, above, midway] {3};
+    \draw (rpi.pin 39) -- (rpi.bpin 39) node[color=red, above, midway] {4};
+    \draw (rpi.pin 3) -- (rpi.bpin 3) node[color=cyan, above, midway] {5};
+    \draw (rpi.pin 38) -- (rpi.bpin 38) node[above, midway] {6};
+    \draw (rpi.pin 4) -- (rpi.bpin 4) node[color=olive, above, midway] {7};
+    \draw (rpi.pin 37) -- (rpi.bpin 37) node[color=blue, above, midway] {8};
+    \draw (rpi.pin 5) -- (rpi.bpin 5) node[above, midway] {9};
+    \draw (rpi.pin 36) -- (rpi.bpin 36) node[color=blue, above, midway] {10};
+    \draw (rpi.pin 6) -- (rpi.bpin 6) node[color=olive, above, midway] {11};
+    \draw (rpi.pin 35) -- (rpi.bpin 35) node[color=olive, above, midway] {12};
+    \draw (rpi.pin 7) -- (rpi.bpin 7) node[color=olive, above, midway] {13};
+    \draw (rpi.pin 34) -- (rpi.bpin 34) node[above, midway] {14};
+    \draw (rpi.pin 8) -- (rpi.bpin 8) node[color=olive, above, midway] {15};
+    \draw (rpi.pin 33) -- (rpi.bpin 33) node[color=olive, above, midway] {16};
+    \draw (rpi.pin 9) -- (rpi.bpin 9) node[color=orange, above, midway] {17};
+    \draw (rpi.pin 32) -- (rpi.bpin 32) node[color=olive, above, midway] {18};
+    \draw (rpi.pin 10) -- (rpi.bpin 10) node[color=purple, above, midway] {19};
+    \draw (rpi.pin 31) -- (rpi.bpin 31) node[above, midway] {20};
+    \draw (rpi.pin 11) -- (rpi.bpin 11) node[color=purple, above, midway] {21};
+    \draw (rpi.pin 30) -- (rpi.bpin 30) node[color=olive, above, midway] {22};
+    \draw (rpi.pin 12) -- (rpi.bpin 12) node[color=purple, above, midway] {23};
+    \draw (rpi.pin 29) -- (rpi.bpin 29) node[color=purple, above, midway] {24};
+    \draw (rpi.pin 13) -- (rpi.bpin 13) node[above, midway] {25};
+    \draw (rpi.pin 28) -- (rpi.bpin 28) node[color=purple, above, midway] {26};
+    \draw (rpi.pin 14) -- (rpi.bpin 14) node[color=cyan, above, midway] {27};
+    \draw (rpi.pin 27) -- (rpi.bpin 27) node[color=cyan, above, midway] {28};
+    \draw (rpi.pin 15) -- (rpi.bpin 15) node[color=olive, above, midway] {29};
+    \draw (rpi.pin 26) -- (rpi.bpin 26) node[above, midway] {30};
+    \draw (rpi.pin 16) -- (rpi.bpin 16) node[color=olive, above, midway] {31};
+    \draw (rpi.pin 25) -- (rpi.bpin 25) node[color=olive, above, midway] {32};
+    \draw (rpi.pin 17) -- (rpi.bpin 17) node[color=olive, above, midway] {33};
+    \draw (rpi.pin 24) -- (rpi.bpin 24) node[above, midway] {34};
+    \draw (rpi.pin 18) -- (rpi.bpin 18) node[color=olive, above, midway] {35};
+    \draw (rpi.pin 23) -- (rpi.bpin 23) node[color=olive, above, midway] {36};
+    \draw (rpi.pin 19) -- (rpi.bpin 19) node[color=olive, above, midway] {37};
+    \draw (rpi.pin 22) -- (rpi.bpin 22) node[color=olive, above, midway] {38};
+    \draw (rpi.pin 20) -- (rpi.bpin 20) node[color=olive, above, midway] {39};
+    \draw (rpi.pin 21) -- (rpi.bpin 21) node[color=olive, above, midway] {40};
+
+    %%%%%%%%% raspberry pi 4 circuit schematics end %%%%%%%%%
+    %%%%%%%%% oled show characters %%%%%%%%%
+    %%%%%%%%% oled start %%%%%%%%%
+    \ctikzset{bipoles/length=0.5cm}
+    \ctikzset{multipoles/dipchip/width=4}
+    \draw (-8.5, 2.5) node[dipchip, num pins=24, hide numbers, no topmark, rotate = 90, external pins width=0, fill=cyan!20!white](oled){\rotatebox{-90}{oled}};
+
+    \node [below] at (oled.bpin 23) {GND};
+    \node [below, color=orange] at (oled.bpin 20) {VCC};
+    \node [below, color=cyan] at (oled.bpin 17) {SDA};
+    \node [below, color=cyan] at (oled.bpin 14) {SCL};
+
+    \node [above, color=olive] at (oled.bpin 1) {6};
+    \node [above, color=olive] at (oled.bpin 3) {5};
+    \node [above, color=olive] at (oled.bpin 5) {4};
+    \node [above, color=olive] at (oled.bpin 8) {3};
+    \node [above, color=olive] at (oled.bpin 10) {2};
+    \node [above, color=olive] at (oled.bpin 12) {1};
+    
+    \draw (oled.bpin 1) to ++(0, -0.5);
+    \draw (oled.bpin 3) to ++(0, -0.5);
+    \draw (oled.bpin 5) to ++(0, -0.5);
+    \draw (oled.bpin 8) to ++(0, -0.5);
+    \draw (oled.bpin 10) to ++(0, -0.5);
+    \draw (oled.bpin 12) to ++(0, -0.5);
+    %%%%%%%%% oled end %%%%%%%%%
+
+    %%%%%%%%% curcuit start %%%%%%%%%
+    \draw [opacity=0, name path=line1] (rpi.pin 1) to ++(-6, 0);
+    \draw [opacity=0, name path=line2] (rpi.pin 2) to ++(-6, 0);
+    \draw [opacity=0, name path=line3] (rpi.pin 3) to ++(-6, 0);
+    \draw [opacity=0, name path=line5] (rpi.pin 5) to ++(-6, 0);
+
+    \draw [opacity=0, name path=line23] (oled.bpin 23) to ++(0, 2);
+    \draw [opacity=0, name path=line20] (oled.bpin 20) to ++(0, 2);
+    \draw [opacity=0, name path=line17] (oled.bpin 17) to ++(0, 2);
+    \draw [opacity=0, name path=line14] (oled.bpin 14) to ++(0, 2);
+
+    \path [name intersections={of = line5 and line20}];
+    \coordinate (gnd-vcc) at (intersection-1);
+
+    \path [name intersections={of = line5 and line17}];
+    \coordinate (gnd-sda)  at (intersection-1);
+
+    \path [name intersections={of = line5 and line14}];
+    \coordinate (gnd-scl)  at (intersection-1);
+    
+    \ctikzset{bipoles/crossing/size/.initial=.5};
+    \draw (rpi.pin 1) to (rpi.pin 1 -| gnd-vcc.north) -- (gnd-vcc.north) to[crossing] (gnd-vcc.south) -- (oled.pin 20);
+    \draw (rpi.pin 2) to (rpi.pin 2 -| gnd-sda.north) -- (gnd-sda.north) to[crossing] (gnd-sda.south) -- (oled.pin 17);
+    \draw (rpi.pin 3) to (rpi.pin 3 -| gnd-scl.north) -- (gnd-scl.north) to[crossing] (gnd-scl.south)-- (oled.pin 14);
+    \draw (rpi.pin 5) to (rpi.pin 5 -| oled.pin 23) -- (oled.pin 23);
+
+    %%%%%%%%% curcuit end %%%%%%%%%
+\end{circuitikz}
+\end{center}
+\end{document}

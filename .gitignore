@@ -9,3 +9,18 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+
+# cmake 产出文件
+build
+bin
+
+# tex文件
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.gz
+*.pdf
+
+.DS_Store
