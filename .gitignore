@@ -24,3 +24,5 @@ bin
 *.pdf
 
 .DS_Store
+
+.vscode
