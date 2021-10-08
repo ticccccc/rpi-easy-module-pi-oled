@@ -18,7 +18,14 @@ FetchContent_Declare(
         ${U8G2}
         GIT_REPOSITORY https://hub.fastgit.org/olikraus/u8g2.git
         GIT_TAG 2.29.11)
+
+# define register_component
+function(register_component)
+configure_file("csrc/mui.h" inc/mui.h COPYONLY)
+endfunction(register_component)
+
+# enddeifine register_component
 FetchContent_MakeAvailable(${U8G2})
 
-
+# end include u8g2
 add_subdirectory(${CMAKE_SOURCE_DIR}/src)
