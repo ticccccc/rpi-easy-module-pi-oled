@@ -62,7 +62,7 @@ $# 编译环境 gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)
 $# 使用c++ std=17 
 $cmake -S . -B build
 $cmake --build build
-$bin/oled
+$sudo bin/oled
 ```
 
 ## 最终试验结果
