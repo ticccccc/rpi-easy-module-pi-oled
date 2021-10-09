@@ -152,17 +152,33 @@ configure_file(sys/arm-linux/port/U8g2lib.h inc/cpp/U8g2lib.h COPYONLY)
 configure_file(sys/arm-linux/port/u8g2port.h inc/cpp/u8g2port.h COPYONLY)
 configure_file(sys/arm-linux/port/U8x8lib.h inc/cpp/U8x8lib.h COPYONLY)
 
-
+# print
 add_library(cppprint STATIC sys/arm-linux/port/Print.cpp)
 target_include_directories(cppprint PUBLIC sys/arm-linux/port)
 
+# U8g2lib
+add_library(cppU8g2lib STATIC sys/arm-linux/port/U8g2lib.cpp)
+target_include_directories(cppU8g2lib 
+                PUBLIC sys/arm-linux/port
+                PUBLIC sys/arm-linux/drivers
+                PUBLIC csrc)
+target_compile_definitions(cppU8g2lib PUBLIC __ARM_LINUX__)
+
+# u8g2port
 add_library(cppu8g2port STATIC sys/arm-linux/port/u8g2port.c)
 target_include_directories(cppu8g2port
                 PUBLIC sys/arm-linux/port
                 PUBLIC sys/arm-linux/drivers
                 PUBLIC csrc)
-
 target_compile_definitions(cppu8g2port PUBLIC __ARM_LINUX__)
+
+# U8x8lib
+add_library(cppU8x8lib STATIC sys/arm-linux/port/U8x8lib.cpp)
+target_include_directories(cppU8x8lib
+                PUBLIC sys/arm-linux/port
+                PUBLIC sys/arm-linux/drivers
+                PUBLIC csrc)
+target_compile_definitions(cppU8x8lib PUBLIC __ARM_LINUX__)
 
 endfunction(register_component)
 
