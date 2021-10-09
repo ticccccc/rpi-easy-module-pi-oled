@@ -32,9 +32,13 @@ configure_file(sys/arm-linux/drivers/spi.h inc/c/spi.h COPYONLY)
 
 add_library(cmui STATIC
         csrc/mui.c)
+target_compile_definitions(cmui PUBLIC __ARM_LINUX__)
+
 
 add_library(cmuiu8g2 STATIC
         csrc/mui_u8g2.c)
+target_compile_definitions(cmuiu8g2 PUBLIC __ARM_LINUX__)
+
 
 add_library(cu8g2 STATIC
         csrc/u8g2_bitmap.c
@@ -58,6 +62,7 @@ add_library(cu8g2 STATIC
         csrc/u8g2_selection_list.c
         csrc/u8g2_setup.c
         csrc/u8log_u8g2.c)
+target_compile_definitions(cu8g2 PUBLIC __ARM_LINUX__)
 
 add_library(cu8x8 STATIC
         csrc/u8log_u8x8.c
@@ -144,12 +149,16 @@ add_library(cu8x8 STATIC
         csrc/u8x8_string.c
         csrc/u8x8_u16toa.c
         csrc/u8x8_u8toa.c)
+target_compile_definitions(cu8x8 PUBLIC __ARM_LINUX__)
 
 add_library(cgpio STATIC sys/arm-linux/drivers/gpio.c)
+target_compile_definitions(cgpio PUBLIC __ARM_LINUX__)
 
 add_library(ci2c STATIC sys/arm-linux/drivers/i2c.c)
+target_compile_definitions(ci2c PUBLIC __ARM_LINUX__)
 
 add_library(cspi STATIC sys/arm-linux/drivers/spi.c)
+target_compile_definitions(cspi PUBLIC __ARM_LINUX__)
 
 ## cppsrc
 configure_file(sys/arm-linux/port/Print.h inc/cpp/Print.h COPYONLY)
@@ -161,6 +170,7 @@ configure_file(sys/arm-linux/port/U8x8lib.h inc/cpp/U8x8lib.h COPYONLY)
 # print
 add_library(cppprint STATIC sys/arm-linux/port/Print.cpp)
 target_include_directories(cppprint PUBLIC sys/arm-linux/port)
+target_compile_definitions(cppprint PUBLIC __ARM_LINUX__)
 
 # U8g2lib
 add_library(cppU8g2lib STATIC sys/arm-linux/port/U8g2lib.cpp)
