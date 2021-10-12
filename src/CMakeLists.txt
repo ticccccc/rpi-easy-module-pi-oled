@@ -1,11 +1,12 @@
 add_executable(states states.cpp)
 
 add_library(system lib/system.cpp)
+target_include_directories(system PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
 target_compile_definitions(states PUBLIC __ARM_LINUX__)
 
 target_include_directories(states 
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/inc
     PUBLIC ${${U8G2}_BINARY_DIR}/inc/c
     PUBLIC ${${U8G2}_BUNARY_DIR}/inc/cpp)
 

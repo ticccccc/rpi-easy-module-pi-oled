@@ -3,16 +3,16 @@
 #include "system.h"
 
 // constructor
-system::system(){}
+System::System(){}
 
 // destructor
-system::~system(){}
+System::~System(){}
 
-std::string system::cpu(){
+std::string System::cpu(){
     return "";
 }
 
-std::string system::ip(){
+std::string System::ip(){
     std::string ipAddress = "NONE";
         struct ifaddrs *interfaces = NULL;
         struct ifaddrs *temp_addr = NULL;
@@ -37,14 +37,14 @@ std::string system::ip(){
         return ipAddress;
 }
 
-std::string system::memory(){
+std::string System::memory(){
     return "";
 }
 
-std::string system::storage(){
+std::string System::storage(){
     return "";
 }
 
-std::string system::temperature(){
+std::string System::temperature(){
     return "";
 }
