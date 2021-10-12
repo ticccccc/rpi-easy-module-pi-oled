@@ -3,11 +3,11 @@
 */
 #include <string>
 
-class system
+class System
 {
 public:
-    system();
-    ~system();
+    System();
+    ~System();
     
     // get current ip address 
     std::string ip();
