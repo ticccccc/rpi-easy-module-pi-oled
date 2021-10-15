@@ -15,8 +15,8 @@ int main(void)
         size_t idle_d = idle - s.getIdleTime();
         size_t total_d = total - s.getTotalTime();
 
-        char usage[8];
-        sprintf(usage, "%.2f%", 100.0 * (1.0 - 1.0*idle_d/total_d));
+        char usage[16];
+        sprintf(usage, "cpu: %.2f%", 100.0 * (1.0 - 1.0*idle_d/total_d));
 
         s.setIdleTime(idle);
         s.setTotalTime(total);
@@ -24,8 +24,9 @@ int main(void)
         u8g2.clearBuffer();                         // clear the internal memory
         u8g2.setFont(u8g2_font_6x13_tr);            // choose a suitable font
         char line[64];
-        sprintf(line, "ip: %s cpu: %s", s.ip().c_str(), usage);
+        sprintf(line, "ip: %s", s.ip().c_str());
         u8g2.drawStr(1, 16, line);       // write something to the internal memory
+        u8g2.drawStr(1, 32, usage);
         u8g2.sendBuffer();
     }
 }

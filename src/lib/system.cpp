@@ -14,7 +14,7 @@ const size_t System::getIdleTime()const {
     return pidle_time;
 }
 
-void System::setIdleTime(size_t i) {
+void System::setIdleTime(const size_t i) {
     pidle_time = i;
 }
 
@@ -22,7 +22,7 @@ const size_t System::getTotalTime()const{
     return ptotal_time;
 }
 
-void System::setTotalTime(size_t t) {
+void System::setTotalTime(const size_t t) {
     ptotal_time = t;
 }
 
