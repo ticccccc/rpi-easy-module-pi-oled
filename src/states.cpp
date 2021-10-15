@@ -24,14 +24,18 @@ int main(void)
         sprintf(first, "ip: %s", s.ip().c_str());
 
         char second[30];
-        sprintf(second, "cpu: %.2f%% mem: %.2f%%", 100.0 * (1.0 - 1.0*idle_d/total_d), s.memory());
+        sprintf(second, "cpu: %.2f%%", 100.0 * (1.0 - 1.0*idle_d/total_d));
 
         char third[30];
         sprintf(third, "SD: %.2f%%", s.storage());
 
+        char forth[30];
+        sprintf(forth, "mem: %.2f%%", s.memory());
+
         u8g2.drawStr(1, 16, first);       // write something to the internal memory
         u8g2.drawStr(1, 32, second);
         u8g2.drawStr(1, 48, third);
+        u8g2.drawStr(1, 64, forth);
         u8g2.sendBuffer();
 
         sleep(30);
