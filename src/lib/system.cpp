@@ -67,7 +67,7 @@ std::string System::ip(){
         return ipAddress;
 }
 
-std::string System::memory(){
+float System::memory(){
     std::ifstream proc_stat("/proc/meminfo");
     
     size_t s, total, avaliable;
@@ -81,7 +81,7 @@ std::string System::memory(){
         }
     }
 
-    return std::to_string(100.0*(total - avaliable)/total);
+    return 100.0*(total - avaliable)/total;
 }
 
 std::string System::storage(){
