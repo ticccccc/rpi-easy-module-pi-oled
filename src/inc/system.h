@@ -26,7 +26,7 @@ public:
     std::string storage();
 
     // get ram usage
-    std::string memory();
+    float memory();
 
     // get cpu usage
     bool cpu(size_t& idle, size_t& total);
