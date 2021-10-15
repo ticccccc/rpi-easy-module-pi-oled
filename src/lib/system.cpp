@@ -68,7 +68,20 @@ std::string System::ip(){
 }
 
 std::string System::memory(){
-    return "";
+    std::ifstream proc_stat("/proc/meminfo");
+    
+    size_t s, total, avaliable;
+    for(std::string name, unit; proc_stat >> name >> s >> unit; ){
+        if (name.compare("MemTotal:") == 0) {
+            total = s;
+        }
+
+        if (name.compare("MemAvailable:") == 0) {
+            avaliable = s;
+        }
+    }
+
+    return std::to_string(100.0*(total - avaliable)/total);
 }
 
 std::string System::storage(){
