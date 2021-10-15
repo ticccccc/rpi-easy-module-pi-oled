@@ -21,7 +21,7 @@ int main(void)
         size_t total_d = total - s.getTotalTime();
 
         char usage[16];
-        sprintf(usage, "cpu: %.2f%", 100.0 * (1.0 - 1.0*idle_d/total_d));
+        sprintf(usage, "cpu: %.2f%%", 100.0 * (1.0 - 1.0*idle_d/total_d));
 
         s.setIdleTime(idle);
         s.setTotalTime(total);
