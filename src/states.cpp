@@ -9,8 +9,21 @@ int main(void)
     System s;
 
     u8g2.begin();
-    u8g2.clearBuffer();                         // clear the internal memory
-    u8g2.setFont(u8g2_font_6x13_tr);            // choose a suitable font
-    u8g2.drawStr(2, 18, s.ip().c_str());       // write something to the internal memory
-    u8g2.sendBuffer();                          // transfer internal memory to the display
+
+    for(size_t total, idle; s.cpu(idle, total); sleep(60)) {
+
+        size_t idle_d = idle - s.getIdleTime();
+        size_t total_d = total - s.getTotalTime();
+
+        char usage[40];
+        sprintf(usage, "%.2f%", 100.0 * (1.0 - 1.0*idle_d/total_d));
+
+        s.setIdleTime(idle);
+        s.setTotalTime(total);
+
+        u8g2.clearBuffer();                         // clear the internal memory
+        u8g2.setFont(u8g2_font_6x13_tr);            // choose a suitable font
+        u8g2.drawStr(1, 18, "ip: " + s.ip().c_str() + " cpu: " + usage);       // write something to the internal memory
+        u8g2.sendBuffer();
+    }
 }
