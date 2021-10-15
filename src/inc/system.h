@@ -23,7 +23,7 @@ public:
     std::string temperature();
 
     // get sd card usage
-    std::string storage();
+    float storage();
 
     // get ram usage
     float memory();

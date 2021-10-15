@@ -2,6 +2,7 @@
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 #include <numeric>
+#include <filesystem>
 #include "system.h"
 
 // constructor
@@ -84,8 +85,9 @@ float System::memory(){
     return 100.0*(total - avaliable)/total;
 }
 
-std::string System::storage(){
-    return "";
+float System::storage(){
+    std::filesystem::space_info fs = std::filesystem::space("/");
+    return 100.0*(1 - 1.0 * fs.available / fs.capacity);
 }
 
 std::string System::temperature(){
