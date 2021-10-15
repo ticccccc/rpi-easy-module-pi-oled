@@ -24,7 +24,7 @@ int main(void)
         u8g2.clearBuffer();                         // clear the internal memory
         u8g2.setFont(u8g2_font_6x13_tr);            // choose a suitable font
         char line[64];
-        sprintf(line, "ip: %s cpu: %s", s.ip(), usage);
+        sprintf(line, "ip: %s cpu: %s", s.ip().c_str(), usage);
         u8g2.drawStr(1, 2, line);       // write something to the internal memory
         u8g2.sendBuffer();
     }
