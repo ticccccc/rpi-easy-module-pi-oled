@@ -11,12 +11,6 @@ int main(void)
     u8g2.begin();
 
     for(size_t total, idle; s.cpu(idle, total); sleep(30)) {
-
-        u8g2.clearBuffer();
-        u8g2.sendBuffer(); 
-        
-        sleep(30);
-
         size_t idle_d = idle - s.getIdleTime();
         size_t total_d = total - s.getTotalTime();
 
@@ -39,5 +33,10 @@ int main(void)
         u8g2.drawStr(1, 32, second);
         u8g2.drawStr(1, 48, third);
         u8g2.sendBuffer();
+
+        sleep(30);
+
+        u8g2.clearBuffer();
+        u8g2.sendBuffer(); 
     }
 }
