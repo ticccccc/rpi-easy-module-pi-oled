@@ -10,7 +10,12 @@ int main(void)
 
     u8g2.begin();
 
-    for(size_t total, idle; s.cpu(idle, total); sleep(60)) {
+    for(size_t total, idle; s.cpu(idle, total); sleep(30)) {
+
+        u8g2.clearBuffer();
+        u8g2.sendBuffer(); 
+        
+        sleep(30);
 
         size_t idle_d = idle - s.getIdleTime();
         size_t total_d = total - s.getTotalTime();
@@ -23,6 +28,7 @@ int main(void)
 
         u8g2.clearBuffer();                         // clear the internal memory
         u8g2.setFont(u8g2_font_6x13_tr);            // choose a suitable font
+        
         char line[64];
         sprintf(line, "ip: %s", s.ip().c_str());
         u8g2.drawStr(1, 16, line);       // write something to the internal memory
