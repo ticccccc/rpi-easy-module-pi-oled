@@ -20,6 +20,7 @@ public:
     std::string ip();
 
     // get current cpu tempture
+    // oled的屏幕太小 没地方展示温度了
     std::string temperature();
 
     // get sd card usage
